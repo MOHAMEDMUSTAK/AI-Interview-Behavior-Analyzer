@@ -48,23 +48,17 @@ while run:
                 (20, height-20), cv2.FONT_HERSHEY_SIMPLEX,
                 1, (0, 255, 0), 2)
     FRAME_WINDOW.image(frame, channels="BGR")
-
     # Update graph
     df = pd.DataFrame(focus_history, columns=["Focus Score"])
     chart.line_chart(df)
-
 cap.release()
-
 # -----------------------------
 # Session Summary
 # -----------------------------
 if focus_history:
     avg_focus = sum(focus_history) / len(focus_history)
-
     st.subheader("Session Summary")
-
     st.write(f"Average Focus Score: {round(avg_focus, 2)}")
-
     if avg_focus > 75:
         st.success("Overall Performance: High Focus")
     elif avg_focus > 50:
