@@ -32,7 +32,6 @@ while run:
         for (x, y, w, h) in faces:
             face_center_x = x + w // 2
             distance_from_center = abs(face_center_x - center_x)
-
             if distance_from_center > 100:
                 focus_score -= 0.3
                 status = "Looking Away"
